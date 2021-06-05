@@ -1,0 +1,45 @@
+--specify rundate
+declare LAST_SHOP_DATE date;
+set LAST_SHOP_DATE = (select max(PARSE_DATE("%Y%m%d", '20080430')) from `bads7105-308203.spmk.supermarket`);
+
+select  LAST_SHOP_DATE as LAST_SHOP_DATE,
+        max(PARSE_DATE("%Y%m%d", cast(main.SHOP_DATE AS string))) as LAST_ACTIVE_DATE,
+        main.CUST_CODE,
+        max(PREV1M.TXN_COUNT_PREV1M) as TXN_COUNT_PREV1M,
+        max(PREV4M.TXN_COUNT_PREV4M) as TXN_COUNT_PREV4M,
+        count(*) as TOTAL_TXN_COUNT,
+        case
+            when    max(PREV1M.TXN_COUNT_PREV1M) = max(PREV4M.TXN_COUNT_PREV4M) then 'Y'
+            else 'N'
+        end as CHURN_FLAG,
+        case
+            when    count(*) = 1 then 'NEW'
+            when    max(PREV1M.TXN_COUNT_PREV1M) = max(PREV4M.TXN_COUNT_PREV4M) then 'REACTIVATED'
+            else 'REPEAT'
+        end as MOVEMENT_STATUS
+from    `bads7105-308203.spmk.supermarket` main
+left join   (
+            select  CUST_CODE,
+                    count(*) as TXN_COUNT_PREV4M
+            from    `bads7105-308203.spmk.supermarket`
+            where   CUST_CODE is  not null
+                    and (PARSE_DATE("%Y%m%d", cast(SHOP_DATE AS string)) between date_sub(LAST_SHOP_DATE, interval 4 month) and LAST_SHOP_DATE)
+            group by CUST_CODE
+            ) PREV4M
+on main.CUST_CODE = PREV4M.CUST_CODE
+left join   (
+            select  CUST_CODE,
+                    count(*) as TXN_COUNT_PREV1M
+            from    `bads7105-308203.spmk.supermarket`
+            where   CUST_CODE is  not null
+                    and (PARSE_DATE("%Y%m%d", cast(SHOP_DATE AS string)) between date_sub(LAST_SHOP_DATE, interval 1 month) and LAST_SHOP_DATE)
+            group by CUST_CODE
+            ) PREV1M
+on main.CUST_CODE = PREV1M.CUST_CODE
+where   main.CUST_CODE is not null
+        and PREV4M.TXN_COUNT_PREV4M is not null
+        and PREV1M.TXN_COUNT_PREV1M is not null
+        and PARSE_DATE("%Y%m%d", cast(SHOP_DATE AS string)) <= LAST_SHOP_DATE
+group by main.CUST_CODE
+order by main.CUST_CODE, LAST_ACTIVE_DATE
+;
