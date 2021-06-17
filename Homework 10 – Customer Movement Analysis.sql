@@ -5,7 +5,7 @@ select  SHOP_MONTH,
         CUM_TXN,
         case when TXN_M = CUM_TXN and TXN_M = TXN_LM then 'NEW'
         when TXN_M != TXN_LM then 'REPEAT'
-        when TXN_M = TXN_LM then 'REACTIVATED'
+        when TXN_M is not null or TXN_M = TXN_LM then 'REACTIVATED'
         when (TXN_M is null or TXN_LM is null) and CUM_TXN is not null then 'CHURN'
         else 'NOT EXCLUDED'
         end as MOVEMENT_STATUS
@@ -28,6 +28,7 @@ from (
                 group by cast(substr(cast(SHOP_DATE as string),1,6) as int64),CUST_CODE
                 ) cc
         on bb.CUST_CODE = cc.CUST_CODE and aa.SHOP_MONTH = cc.SHOP_MONTH
-        order by aa.SHOP_MONTH, bb.CUST_CODE
+        order by bb.CUST_CODE, aa.SHOP_MONTH
 )
+where TXN_LM is not null
 ;
