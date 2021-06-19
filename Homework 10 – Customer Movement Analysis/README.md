@@ -5,4 +5,4 @@ Check out my query : [https://github.com/ayocucu/BADS7105/blob/main/Homework%201
 <br />
 
 
-![](https://github.com/ayocucu/BADS7105/blob/main/Homework%2010%20%E2%80%93%20Customer%20Movement%20Analysis/HW10.jpg)
+![](https://github.com/ayocucu/BADS7105/blob/main/Homework%2010%20%E2%80%93%20Customer%20Movement%20Analysis/HW10.png)
