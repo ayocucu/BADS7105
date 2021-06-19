@@ -9,4 +9,5 @@ Ayothaya Sriin (6220422004)
 🔸 [Homework 05 – CLV Dashboard](https://github.com/ayocucu/BADS7105/tree/main/Homework%2005%20%E2%80%93%20CLV%20Dashboard)<br />
 🔸 [Homework 06 – Customer Segmentation](https://github.com/ayocucu/BADS7105/tree/main/Homework%2006%20%E2%80%93%20Customer%20Segmentation)<br />
 🔸 [Homework 07 – Product Recommendation](https://github.com/ayocucu/BADS7105/tree/main/Homework%2007%20%E2%80%93%20Product%20Recommendation)<br />
-🔸
+🔸 [Homework 08 – Campaign Response Model](https://github.com/ayocucu/BADS7105/tree/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model)<br />
+🔸 [Homework 09 – A/B Testing](https://github.com/ayocucu/BADS7105/tree/main/Homework%2009%20%E2%80%93%20AB%20Testing)<br />
