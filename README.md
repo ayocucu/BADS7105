@@ -11,3 +11,6 @@ Ayothaya Sriin (6220422004)
 🔸 [Homework 07 – Product Recommendation](https://github.com/ayocucu/BADS7105/tree/main/Homework%2007%20%E2%80%93%20Product%20Recommendation)<br />
 🔸 [Homework 08 – Campaign Response Model](https://github.com/ayocucu/BADS7105/tree/main/Homework%2008%20%E2%80%93%20Campaign%20Response%20Model)<br />
 🔸 [Homework 09 – A/B Testing](https://github.com/ayocucu/BADS7105/tree/main/Homework%2009%20%E2%80%93%20AB%20Testing)<br />
+🔸 [Homework 10 – Customer Movement Analysis](https://github.com/ayocucu/BADS7105/tree/main/Homework%2010%20%E2%80%93%20Customer%20Movement%20Analysis)<br />
+🔸 [Homework 11 – Voice of Customers](https://github.com/ayocucu/BADS7105/tree/main/Homework%2011%20%E2%80%93%20Voice%20of%20Customers)<br />
+🔸 [Homework 12 – Design Thinking](https://github.com/ayocucu/BADS7105/tree/main/Homework%2012%20%E2%80%93%20Design%20Thinking)<br />
