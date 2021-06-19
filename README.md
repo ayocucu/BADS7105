@@ -1,4 +1,4 @@
-# BADS7105 Customer Analytics
+# BADS7105 : Customer Analytics
 
 Ayothaya Sriin (6220422004)
 
