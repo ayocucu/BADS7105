@@ -1,2 +1,2 @@
 # Customer Segmentation
-## Import dataset
+## 1) Import dataset
